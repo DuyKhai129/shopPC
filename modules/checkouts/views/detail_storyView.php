@@ -36,7 +36,7 @@
                             <td><?php echo $value['code']; ?></td>
                             <td>
                                 <a href="" title="" class="thumb">
-                                    <img src="<?php echo $value['image'] ;?>" alt="">
+                                    <img src="admin/public/uploads/<?php echo $value['image'] ;?>" alt="">
                                 </a>
                             </td>
                             <td><?php echo $value['name']; ?> </td>

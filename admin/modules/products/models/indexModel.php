@@ -45,4 +45,5 @@ function delete_product_by_id($id){
 	return db_delete("tbl_product", "`id` = '$id'");
 }
 
+
 ?>

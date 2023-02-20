@@ -115,7 +115,7 @@
                                         <?php foreach ($_SESSION['cart']['buy'] as $key => $value) { ?>
                                         <li class="clearfix">
                                             <a href="" title="" class="thumb fl-left">
-                                                <img src="<?php echo $value['image']; ?>" alt="">
+                                                <img src="admin/public/uploads/<?php echo $value['image']; ?>" alt="">
                                             </a>
                                             <div class="info fl-right">
                                                 <a href="" title="" class="product-name">

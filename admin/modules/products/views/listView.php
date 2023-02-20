@@ -6,7 +6,8 @@
             <div class="section" id="title-page">
                 <div class="clearfix">
                     <h3 id="index" class="fl-left">Danh sách sản phẩm</h3>
-                    <a href="?modules=products&controllers=index&action=add" title="" id="add-new" class="fl-left">Thêm mới</a>
+                    <a href="?modules=products&controllers=index&action=add" title="" id="add-new" class="fl-left">Thêm
+                        mới</a>
                 </div>
             </div>
             <div class="section" id="detail-page">
@@ -64,7 +65,7 @@
                                     <td><span class="tbody-text"><?php echo $value['code']; ?></span></td>
                                     <td>
                                         <div class="tbody-thumb">
-                                            <img src="<?php echo $value['image']; ?>" alt="">
+                                            <img src="public/uploads/<?php echo $value['image']; ?>" alt="">
                                         </div>
                                     </td>
                                     <td><span class="tbody-text"><?php echo $value['name']; ?></span></td>
@@ -79,14 +80,18 @@
                                     <td><span class="tbody-text"><?php echo $value['create_date']; ?></span></td>
                                     <td>
                                         <ul class="list-operation ">
-                                            <li><a href="?modules=products&controllers=index&action=edit&id=<?php echo $value['id'] ;?>" title="Sửa" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                            <li><a href="?modules=products&controllers=index&action=delete&id=<?php echo $value['id'] ;?>" title="Xóa" class="delete"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+                                            <li><a href="?modules=products&controllers=index&action=edit&id=<?php echo $value['id'] ;?>"
+                                                    title="Sửa" class="edit"><i class="fa fa-pencil"
+                                                        aria-hidden="true"></i></a></li>
+                                            <li><a href="?modules=products&controllers=index&action=delete&id=<?php echo $value['id'] ;?>"
+                                                    title="Xóa" class="delete"><i class="fa fa-trash"
+                                                        aria-hidden="true"></i></a></li>
                                         </ul>
                                     </td>
                                 </tr>
                                 <?php }; ?>
                             </tbody>
-                            
+
                         </table>
                         <hr>
                     </div>
@@ -98,7 +103,9 @@
                     <ul id="list-paging" class="fl-right">
                         <?php for ($i=1; $i <= $data['1'] ; $i++) { ?>
                         <li>
-                            <a <?php if($i == $data['2']) echo 'style="background-color: green; color:white; border-radius:300px;"';  ?>  href="?modules=products&controllers=index&action=list&page=<?php echo $i; ?>" title=""><?php echo $i; ?></a>
+                            <a <?php if($i == $data['2']) echo 'style="background-color: green; color:white; border-radius:300px;"';  ?>
+                                href="?modules=products&controllers=index&action=list&page=<?php echo $i; ?>"
+                                title=""><?php echo $i; ?></a>
                         </li>
                         <?php }; ?>
                     </ul>

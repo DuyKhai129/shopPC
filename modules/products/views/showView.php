@@ -41,7 +41,7 @@
                         <li>
                             <a href="?modules=products&controllers=index&action=detail&id=<?php echo $value['id']; ?>"
                                 title="" class="thumb">
-                                <img src="<?php echo $value['image']; ?>">
+                                <img src="admin/public/uploads/<?php echo $value['image']; ?>">
                             </a>
                             <a href="?modules=products&controllers=index&action=detail&id=<?php echo $value['id']; ?>"
                                 title="" class="product-name"><?php echo textShorten($value['name'],20); ?></a>

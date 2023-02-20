@@ -90,7 +90,7 @@
                                 <label>Hình ảnh</label>
                                 <div id="uploadFile">
                                     <input type="file" name="image" id="upload-thumb">
-                                    <img src="<?php echo $value['image']; ?>" alt="No image">
+                                    <img src="public/uploads/<?php echo $value['image']; ?>" alt="No image">
                                 </div>
                             </div>
                         </div>

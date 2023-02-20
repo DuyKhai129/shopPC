@@ -55,35 +55,31 @@
                             <div style="width: 400px;">
                                 <label for="status">Độ hot sản phẩm</label>
                                 <select name="level" style="display: block;width: 300px;">
-                                    <option>---Select---</option>
+                                    <option>---Chọn---</option>
                                     <option value="hot">sản phẩm hot</option>
                                     <option value="normal"> sản phẩm bình thường</option>
                                     <option value="discount">sản phẩm giảm giá</option>
                                 </select>
                                 <label for="status">Trạng thái</label>
                                 <select name="status" style="display: block;width: 300px;">
-                                    <option>---Select---</option>
+                                    <option>---Chọn---</option>
                                     <option value="còn hàng">còn hàng</option>
                                     <option value="hết hàng">hết hàng</option>
                                     <option value="hàng sắp về">hàng sắp về</option>
                                 </select>
                                 <label for="category ">Danh mục sản phẩm</label>
                                 <select name="id_category" style="display: block;width: 300px;">
-                                    <option>---Select---</option>
-                                    <?php if (!empty($data))
-                                        foreach ($data[1] as $value) { ?>
+                                    <option>---Chọn---</option>
+                                    <?php if(!empty($data)) foreach ($data[0] as  $value) { ?>
                                     <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
-                                    <?php }
-                                    ; ?>
+                                    <?php }; ?>
                                 </select>
                                 <label for="brand">Thương hiệu sản phẩm</label>
                                 <select name="id_brand" style="display: block;width: 300px;">
-                                    <option>---Select---</option>
-                                    <?php if (!empty($data))
-                                        foreach ($data[1] as $value) { ?>
+                                    <option>---Chọn---</option>
+                                    <?php if(!empty($data)) foreach ($data[1] as  $value) { ?>
                                     <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
-                                    <?php }
-                                    ; ?>
+                                    <?php }; ?>
                                 </select>
 
                                 <label>Hình ảnh</label>
@@ -97,13 +93,7 @@
                         <textarea name="description" id="desc" class="ckeditor"></textarea>
 
                         <input type="submit" name="btn_submit" id="btn-submit" value="Thêm mới"
-                            style="height: 40px;
-                                                                                                border-radius: 60px;
-                                                                                                width: 150px;
-                                                                                                color: green;
-                                                                                                border-color: white;
-                                                                                                color: white;
-                                                                                                background-color: #48ad48;">
+                            style="height: 40px;border-radius: 60px;width: 150px;color: green;border-color: white;color: white;background-color: #48ad48;">
 
                     </form>
 

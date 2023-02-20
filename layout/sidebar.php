@@ -30,7 +30,7 @@
                 <li class="clearfix">
                     <a href="?modules=products&controllers=index&action=detail&id=<?php echo $value['id']; ?>" title=""
                         class="thumb fl-left">
-                        <img src="<?php echo $value['image']; ?>" alt="">
+                        <img src="admin/public/uploads/<?php echo $value['image']; ?>" alt="">
                     </a>
                     <div class="info fl-right">
                         <a href="?modules=products&controllers=index&action=detail&id=<?php echo $value['id']; ?>"

@@ -13,9 +13,9 @@ function indexAction()
 
 function addAction()
 {
-	$categorys = getAllCategory();
+	$categories = getAllCategory();
 	$brands = getAllBrand();
-	$data = [$categorys, $brands];
+	$data = [$categories, $brands];
 	$id_category;
 	$id_brand;
 	$name;
@@ -33,7 +33,6 @@ function addAction()
 	$front_camera;
 	$rear_camera;
 	$user;
-	$create_date;
 	$image;
 	$level;
 	$err = array();
@@ -129,17 +128,17 @@ function addAction()
 			$err['operating_system'] = "operating_system không được rỗng";
 		}
 
-		if (!empty($_POST['front_camera'])) {
-			$front_camera = $_POST['front_camera'];
-		} else {
-			$err['front_camera'] = "front_camera không được rỗng";
-		}
+		// if (!empty($_POST['front_camera'])) {
+		// 	$front_camera = $_POST['front_camera'];
+		// } else {
+		// 	$err['front_camera'] = "front_camera không được rỗng";
+		// }
 
-		if (!empty($_POST['rear_camera'])) {
-			$rear_camera = $_POST['rear_camera'];
-		} else {
-			$err['rear_camera'] = "rear_camera không được rỗng";
-		}
+		// if (!empty($_POST['rear_camera'])) {
+		// 	$rear_camera = $_POST['rear_camera'];
+		// } else {
+		// 	$err['rear_camera'] = "rear_camera không được rỗng";
+		// }
 
 		if (!empty($_POST['user'])) {
 			$user = $_POST['user'];
@@ -147,80 +146,66 @@ function addAction()
 			$err['user'] = "user không được rỗng";
 		}
 
-		////// ảnh
-		$target_dir = "public/uploads/";
-		$target_file = $target_dir . basename($_FILES["image"]["name"]);
-		$uploadOk = 1;
-		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-		if (isset($_POST["submit"])) {
-			$check = getimagesize($_FILES["image"]["tmp_name"]);
-			if ($check !== false) {
-				$uploadOk = 1;
-			} else {
-				$uploadOk = 0;
+			// xử lý ảnh
+			$permitted  = array('jpg', 'jpeg', 'png', 'gif');
+			$file_name = $_FILES['image']['name'];
+			$file_size = $_FILES['image']['size'];
+			$file_temp = $_FILES['image']['tmp_name'];
+	
+			$div = explode('.', $file_name);
+			$file_ext = strtolower(end($div));
+			$unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
+			$uploaded_image = "public/uploads/".$unique_image;
+	
+			if(!empty($file_name)){
+				//Nếu người dùng chọn ảnh
+				if ($file_size > 204800000) {
+	
+				 $alert = "<span class='success'>Kích thước hình ảnh phải nhỏ hơn 100MB!</span>";
+				return $alert;
+				} 
+				elseif (in_array($file_ext, $permitted) === false) 
+				{
+				$alert = "<span class='success'>You can upload only:-".implode(', ', $permitted)."</span>";
+				return $alert;
+				}
+				if (empty($err)) {
+					move_uploaded_file($file_temp,$uploaded_image);
+					$res = [
+						'id_category ' => $id_category,
+						'id_brand ' => $id_brand,
+						'name' => $name,
+						'code' => $code,
+						'price' => $price,
+						'promotional_price' => $promotional_price,
+						'quantity' => $quantity,
+						'status' => $status,
+						'description' => $description,
+						'screen' => $screen,
+						'ram' => $ram,
+						'cpu' => $cpu,
+						'memory' => $memory,
+						'operating_system' => $operating_system,
+						'front_camera' => $front_camera,
+						'rear_camera' => $rear_camera,
+						'user' => $user,
+						'image' => $image,
+						'level' => $level
+		
+					];
+					if (insert_product($res)) {
+		
+						echo " <script type='text/javascript'> alert('Thêm mới sản phẩm thành công👌👌👌');</script>";
+					} else {
+		
+						echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại😭😭😭');</script>";
+					}
+		
+				} else {
+		
+					echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại😔😔😔');</script>";
+				}
 			}
-		}
-
-		if (file_exists($target_file)) {
-			$uploadOk = 0;
-		}
-
-		if ($_FILES["image"]["size"] > 200000000) {
-			$uploadOk = 0;
-		}
-
-		if (
-			$imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-			&& $imageFileType != "gif"
-		) {
-			$uploadOk = 0;
-		}
-
-		if ($uploadOk == 0) {
-		} else {
-			if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-				$image = $target_dir . basename($_FILES["image"]["name"]);
-			}
-		}
-		if (empty($err)) {
-			$create_date = date("d/m/Y", time());
-			$res = [
-				'id_category ' => $id_category,
-				'id_brand ' => $id_brand,
-				'name' => $name,
-				'code' => $code,
-				'price' => $price,
-				'promotional_price' => $promotional_price,
-				'quantity' => $quantity,
-				'status' => $status,
-				'description' => $description,
-				'screen' => $screen,
-				'ram' => $ram,
-				'cpu' => $cpu,
-				'memory' => $memory,
-				'operating_system' => $operating_system,
-				'front_camera' => $front_camera,
-				'rear_camera' => $rear_camera,
-				'user' => $user,
-				'create_date' => $create_date,
-				'image' => $image,
-				'level' => $level
-
-			];
-			if (insert_product($res)) {
-
-				echo " <script type='text/javascript'> alert('Thêm mới thành công');</script>";
-			} else {
-
-				echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
-			}
-
-		} else {
-
-			echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
-		}
-
 
 	}
 
