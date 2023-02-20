@@ -26,3 +26,8 @@ function delete_slider_by_id($id)
 
 	return db_delete("tbl_slider", "`id` = '$id'");
 }
+
+function update_slider_by_id($id,$data){
+
+	return db_update("tbl_slider", $data, "`id`='$id'");
+}

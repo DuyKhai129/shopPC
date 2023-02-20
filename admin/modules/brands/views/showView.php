@@ -15,34 +15,34 @@
 
                     <?php if (!empty($data))
                         foreach ($data as $value) { ?>
-                            <form method="POST"
-                                action="?modules=brands&controllers=index&action=update&id=<?php echo $value['id']; ?>"
-                                enctype="multipart/form-data">
-                                <div style="display: flex;">
-                                    <div style="width: 400px;">
-                                        <label for="title">Tên thương hiệu</label>
-                                        <input type="text" name="name" id="title" value="<?php echo $value['name']; ?>"
-                                            style="display: block;width: 300px;">
-                                        <label for="title">Mã Code</label>
-                                        <input type="text" name="code" id="username" readonly="readonly"
-                                            value="<?php echo $value['code']; ?> " style="display: block;width: 300px;">
-                                        <label for="title">Người tạo</label>
-                                        <input type="text" name="user" id="title" value="<?php echo $value['user']; ?>"
-                                            style="display: block;width: 300px;">
-                                    </div>
-                                    <div style="width: 400px;">
-                                        <label>Hình ảnh</label>
-                                        <div id="uploadFile">
-                                            <input type="file" name="image" id="upload-thumb">
-                                            <img src="<?php echo $value['image']; ?>">
-                                        </div>
-                                    </div>
+                    <form method="POST"
+                        action="?modules=brands&controllers=index&action=update&id=<?php echo $value['id']; ?>"
+                        enctype="multipart/form-data">
+                        <div style="display: flex;">
+                            <div style="width: 400px;">
+                                <label for="title">Tên thương hiệu</label>
+                                <input type="text" name="name" id="title" value="<?php echo $value['name']; ?>"
+                                    style="display: block;width: 300px;">
+                                <label for="title">Mã Code</label>
+                                <input type="text" name="code" id="username" readonly="readonly"
+                                    value="<?php echo $value['code']; ?> " style="display: block;width: 300px;">
+                                <label for="title">Người tạo</label>
+                                <input type="text" name="user" id="title" value="<?php echo $value['user']; ?>"
+                                    style="display: block;width: 300px;">
+                            </div>
+                            <div style="width: 400px;">
+                                <label>Hình ảnh</label>
+                                <div id="uploadFile">
+                                    <input type="file" name="image" id="upload-thumb">
+                                    <img src="public/uploads/<?php echo $value['image']; ?>">
                                 </div>
-                                <label for="desc">Mô tả</label>
-                                <textarea name="description" id="desc"
-                                    class="ckeditor"><?php echo $value['description']; ?></textarea>
+                            </div>
+                        </div>
+                        <label for="desc">Mô tả</label>
+                        <textarea name="description" id="desc"
+                            class="ckeditor"><?php echo $value['description']; ?></textarea>
 
-                            <?php }
+                        <?php }
                     ; ?>
 
                         <input type="submit" name="btn_submit" id="btn-submit" value="Cập Nhật"

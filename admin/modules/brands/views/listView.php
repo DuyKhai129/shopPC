@@ -55,47 +55,47 @@
                                     foreach ($data['0'] as $key => $value) {
                                         $i++; ?>
 
-                                        <tr>
-                                            <td><input type="checkbox" name="checkItem" class="checkItem"></td>
-                                            <td><span class="tbody-text">
-                                                    <?php echo $i; ?>
-                                                    </h3>
-                                                </span>
-                                            <td><span class="tbody-text">
-                                                    <?php echo $value['code']; ?>
-                                                    </h3>
-                                                </span>
-                                            <td>
-                                                <div class="tbody-thumb">
-                                                    <img src="<?php echo $value['image']; ?>" alt="">
-                                                </div>
-                                            </td>
-                                            <td class="clearfix">
-                                                <div class="tb-title fl-left">
-                                                    <h3>
-                                                        <?php echo $value['name']; ?>
-                                                    </h3>
-                                                </div>
+                                <tr>
+                                    <td><input type="checkbox" name="checkItem" class="checkItem"></td>
+                                    <td><span class="tbody-text">
+                                            <?php echo $i; ?>
+                                            </h3>
+                                        </span>
+                                    <td><span class="tbody-text">
+                                            <?php echo $value['code']; ?>
+                                            </h3>
+                                        </span>
+                                    <td>
+                                        <div class="tbody-thumb">
+                                            <img src="public/uploads/<?php echo $value['image']; ?>" alt="">
+                                        </div>
+                                    </td>
+                                    <td class="clearfix">
+                                        <div class="tb-title fl-left">
+                                            <h3>
+                                                <?php echo $value['name']; ?>
+                                            </h3>
+                                        </div>
 
-                                            </td>
-                                            <td><span class="tbody-text">
-                                                    <?php echo $value['user']; ?>
-                                                </span></td>
-                                            <td><span class="tbody-text">
-                                                    <?php echo $value['create_date']; ?>
-                                                </span></td>
-                                            <td>
-                                                <ul class="list-operation ">
-                                                    <li><a href="?modules=brands&contollers=index&action=edit&id=<?php echo $value['id']; ?>"
-                                                            title="Sửa" class="edit"><i class="fa fa-pencil"
-                                                                aria-hidden="true"></i></a></li>
-                                                    <li><a href="?modules=brands&contollers=index&action=delete&id=<?php echo $value['id']; ?>"
-                                                            title="Xóa" class="delete"><i class="fa fa-trash"
-                                                                aria-hidden="true"></i></a></li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    <?php }
+                                    </td>
+                                    <td><span class="tbody-text">
+                                            <?php echo $value['user']; ?>
+                                        </span></td>
+                                    <td><span class="tbody-text">
+                                            <?php echo $value['create_date']; ?>
+                                        </span></td>
+                                    <td>
+                                        <ul class="list-operation ">
+                                            <li><a href="?modules=brands&contollers=index&action=edit&id=<?php echo $value['id']; ?>"
+                                                    title="Sửa" class="edit"><i class="fa fa-pencil"
+                                                        aria-hidden="true"></i></a></li>
+                                            <li><a href="?modules=brands&contollers=index&action=delete&id=<?php echo $value['id']; ?>"
+                                                    title="Xóa" class="delete"><i class="fa fa-trash"
+                                                        aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <?php }
                                 ; ?>
                             </tbody>
 
@@ -109,12 +109,12 @@
                     <p id="desc" class="fl-left">Chọn vào checkbox để lựa chọn tất cả</p>
                     <ul id="list-paging" class="fl-right">
                         <?php for ($i = 1; $i <= $data['1']; $i++) { ?>
-                            <li>
-                                <a <?php if ($i == $data['2'])
+                        <li>
+                            <a <?php if ($i == $data['2'])
                                     echo 'style="background-color: green;color:white; border-radius:300px;"'; ?>
-                                    href="?modules=brands&controllers=index&action=list&page=<?php echo $i; ?>"
-                                    title=""><?php echo $i; ?></a>
-                            </li>
+                                href="?modules=brands&controllers=index&action=list&page=<?php echo $i; ?>"
+                                title=""><?php echo $i; ?></a>
+                        </li>
                         <?php }
                         ; ?>
                     </ul>

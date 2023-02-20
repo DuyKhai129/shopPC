@@ -21,5 +21,3 @@ $db = array(
     'password' => '',
     'database' => 'store',
 );
-
-

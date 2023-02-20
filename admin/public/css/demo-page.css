@@ -28,14 +28,14 @@ body {
 }
 
 .browsehappy {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    padding: 1em;
-    background: black;
-    color: white;
-    text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 1em;
+  background: black;
+  color: white;
+  text-align: center;
 }
 
 img {
@@ -43,12 +43,12 @@ img {
 }
 
 small {
-    display: block;
+  display: block;
 }
 
 p,
 [class^="hvr-"] {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 [class^="hvr-"] {
@@ -61,7 +61,7 @@ p,
   text-decoration: none;
   color: #666;
   /* Prevent highlight colour when element is tapped */
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .aligncenter {
@@ -69,28 +69,28 @@ p,
 }
 
 .sup {
-    vertical-align: super;
-    margin-left: -1em;
-    padding: .21875em;
-    line-height: 100%;
-    font-size: .21875em;
-    border: #eee solid 1px;
-    border-radius: 4px;
-    color: inherit;
+  vertical-align: super;
+  margin-left: -1em;
+  padding: .21875em;
+  line-height: 100%;
+  font-size: .21875em;
+  border: #eee solid 1px;
+  border-radius: 4px;
+  color: inherit;
 }
 
 .sup:hover {
-    background: #eee;
+  background: #eee;
 }
 
 a {
-    color: #2098D1;
-    text-decoration: none;
+  color: #2098D1;
+  text-decoration: none;
 }
 
 .footer a:hover,
 .tutorial:hover {
-    color: #207AD1;
+  color: #207AD1;
 }
 
 .tutorial {
@@ -104,6 +104,3 @@ a {
 .tutorial:active {
   text-decoration: none;
 }
-
-
-

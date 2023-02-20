@@ -71,9 +71,9 @@
                                 <select name="id_category" style="display: block;width: 300px;">
                                     <option>---Select---</option>
                                     <?php if (!empty($data))
-                                        foreach ($data[0] as $value) { ?>
-                                            <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
-                                        <?php }
+                                        foreach ($data[1] as $value) { ?>
+                                    <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
+                                    <?php }
                                     ; ?>
                                 </select>
                                 <label for="brand">Thương hiệu sản phẩm</label>
@@ -81,8 +81,8 @@
                                     <option>---Select---</option>
                                     <?php if (!empty($data))
                                         foreach ($data[1] as $value) { ?>
-                                            <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
-                                        <?php }
+                                    <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
+                                    <?php }
                                     ; ?>
                                 </select>
 

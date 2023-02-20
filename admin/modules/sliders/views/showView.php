@@ -15,22 +15,26 @@
                 <div class="section-detail">
                     <?php if (!empty($data))
                         foreach ($data as $value) { ?>
-                            <form method="POST"
-                                action="?modules=sliders&controllers=index&action=update&id=<?php echo $value['id']; ?>"
-                                enctype="multipart/form-data">
-                                <label for=" title">Người tạo</label>
-                                <input type="text" value="<?php echo $value['user']; ?>" name="user" id="title">
-                                <label>Kiểu</label>
-                                <select name="type">
-                                    <option value="ngang">Ngang</option>
-                                    <option value="docj">Dọc</option>
-                                </select>
-                                <label>Hình ảnh</label>
-                                <div id="uploadFile">
-                                    <input type="file" name="image" id="upload-thumb">
-                                    <img src="<?php echo $value['image']; ?>" alt="No image">
-                                </div>
-                            <?php }
+                    <form method="POST"
+                        action="?modules=sliders&controllers=index&action=update&id=<?php echo $value['id']; ?>"
+                        enctype="multipart/form-data">
+                        <label for=" title">Người tạo</label>
+                        <input type="text" value="<?php echo $value['user']; ?>" name="user" id="title">
+                        <label>Kiểu</label>
+                        <select name="type">
+                            <option>---Select---</option>
+
+                            <option value="ngang">Ngang</option>
+
+                            <option value="dọc">Dọc</option>
+
+                        </select>
+                        <label>Hình ảnh</label>
+                        <div id="uploadFile">
+                            <input type="file" name="image" id="upload-thumb">
+                            <img src="public/uploads/<?php echo $value['image']; ?>" alt="No image">
+                        </div>
+                        <?php }
                     ; ?>
                         <input type="submit" name="btn_submit" id="btn-submit" value="Cập nhập"
                             style="height: 40px;border-radius: 60px; width: 150px;color: green;border-color: white;color: white;background-color: #48ad48;">

@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+
 <div id="main-content-wp" class="add-cat-page slider-page">
     <div class="wrap clearfix">
         <?php get_sidebar(); ?>
@@ -19,8 +20,9 @@
                         <input type="text" name="user" id="title">
                         <label>Kiểu</label>
                         <select name="type">
+                            <option value="">---Chọn---</option>
                             <option value="ngang">Ngang</option>
-                            <option value="docj">Dọc</option>
+                            <option value="dọc">Dọc</option>
                         </select>
                         <label>Hình ảnh</label>
                         <div id="uploadFile">

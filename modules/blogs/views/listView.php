@@ -23,12 +23,14 @@
                     <ul class="list-item">
                         <?php if(!empty($data)) foreach ($data['0'] as  $value) {?>
                         <li class="clearfix">
-                            <a href="?modules=blogs&controllers=index&action=detail&id=<?php echo $value['id']; ?>" class="thumb fl-left">
-                                <img src="<?php echo $value['image']; ?>" alt="">
+                            <a href="?modules=blogs&controllers=index&action=detail&id=<?php echo $value['id']; ?>"
+                                class="thumb fl-left">
+                                <img src="admin/public/uploads/<?php echo $value['image']; ?>" alt="">
 
                             </a>
                             <div class="info fl-right">
-                                <a href="?modules=blogs&controllers=index&action=detail&id=<?php echo $value['id']; ?>" class="title"><?php echo $value['title']; ?></a>
+                                <a href="?modules=blogs&controllers=index&action=detail&id=<?php echo $value['id']; ?>"
+                                    class="title"><?php echo $value['title']; ?></a>
                                 <span class="create-date"><?php echo $value['create_date']; ?></span>
                                 <p class="desc"><?php echo $value['description'].'...'; ?></p>
                             </div>
@@ -42,14 +44,16 @@
                     <ul class="list-item clearfix">
                         <?php for ($i=1; $i <= $data['1'] ; $i++) { ?>
                         <li>
-                            <a <?php if($i == $data['2']) echo 'style="background-color: green;"';  ?>  href="?modules=blogs&controllers=index&action=list&page=<?php echo $i; ?>" title=""><?php echo $i; ?></a>
+                            <a <?php if($i == $data['2']) echo 'style="background-color: green;"';  ?>
+                                href="?modules=blogs&controllers=index&action=list&page=<?php echo $i; ?>"
+                                title=""><?php echo $i; ?></a>
                         </li>
                         <?php }; ?>
                     </ul>
                 </div>
             </div>
         </div>
-<?php get_sidebar(); ?>
+        <?php get_sidebar(); ?>
     </div>
 </div>
 

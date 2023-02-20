@@ -17,23 +17,23 @@
 
                     <?php if (!empty($data))
                         foreach ($data as $value) { ?>
-                            <form method="post"
-                                action="?modules=blogs&controllers=index&action=update&id=<?php echo $value['id']; ?>"
-                                enctype="multipart/form-data">
-                                <label for="title">Tiêu đề</label>
-                                <input type="text" name="title" id="title" value="<?php echo $value['title']; ?>">
-                                <label for="title">Người viết</label>
-                                <input type="text" name="user" id="title" value="<?php echo $value['user']; ?>">
-                                <div id="uploadFile" style="width: 400px;">
-                                    <label>Hình ảnh</label>
-                                    <input type="file" name="image" id="upload-thumb">
-                                    <img src="<?php echo $value['image']; ?>" alt="No image">
-                                </div>
-                                <label for="desc">Mô tả ngắn</label>
-                                <textarea name="description" id="desc"><?php echo $value['description']; ?></textarea>
-                                <label for="desc">Nội dung</label>
-                                <textarea name="content" id="desc" class="ckeditor"><?php echo $value['content']; ?></textarea>
-                            <?php }
+                    <form method="post"
+                        action="?modules=blogs&controllers=index&action=update&id=<?php echo $value['id']; ?>"
+                        enctype="multipart/form-data">
+                        <label for="title">Tiêu đề</label>
+                        <input type="text" name="title" id="title" value="<?php echo $value['title']; ?>">
+                        <label for="title">Người viết</label>
+                        <input type="text" name="user" id="title" value="<?php echo $value['user']; ?>">
+                        <div id="uploadFile" style="width: 400px;">
+                            <label>Hình ảnh</label>
+                            <input type="file" name="image" id="upload-thumb">
+                            <img src="public/uploads/<?php echo $value['image']; ?>" alt="No image">
+                        </div>
+                        <label for="desc">Mô tả ngắn</label>
+                        <textarea name="description" id="desc"><?php echo $value['description']; ?></textarea>
+                        <label for="desc">Nội dung</label>
+                        <textarea name="content" id="desc" class="ckeditor"><?php echo $value['content']; ?></textarea>
+                        <?php }
                     ; ?>
                         <input type="submit" name="btn_submit" id="btn-submit" value="Cập nhập"
                             style="height: 40px;border-radius: 60px;

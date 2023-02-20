@@ -31,21 +31,21 @@ function changepassAction(){
             if($newPass1 == $newPass2 &&$oldPass != $newPass2){
                 if(changePass(md5($newPass1),md5($oldPass))==1){
                     load_view('pass');
-                    echo " <script type='text/javascript'> alert('Cập Nhật Thành Công');</script>";
+                    echo " <script type='text/javascript'> alert('Cập nhật mật khẩu thành công👌👌👌');</script>";
                 }
                 else{
                     load_view('pass');
-                    echo " <script type='text/javascript'> alert('Cập Nhật Không Thành Công');</script>";
+                    echo " <script type='text/javascript'> alert('Cập nhật mật khẩu thất bại😭😭😭');</script>";
                 }
             }
             else{
                     load_view('pass');
-                    echo " <script type='text/javascript'> alert('Mật Khẩu Mới Không Khớp, Hoặc Bị Trùng Mật Khẩu Cũ');</script>";
+                    echo " <script type='text/javascript'> alert('Mật khẩu mới không khớp hoặc bị trùng mật khẩu cũ☝️☝️☝️');</script>";
                 }
         }
         else{
                     load_view('pass');
-                    echo " <script type='text/javascript'> alert('Mật Khẩu Cũ Không Đúng');</script>";
+                    echo " <script type='text/javascript'> alert('Mật khẩu cũ không đúng👎👎👎');</script>";
                 }
             
     }  

@@ -1,7 +1,10 @@
 /*LIST PRODUCT*/
-.tbody-thumb{
+.tbody-thumb {
     width: 80px;
     height: 80px;
     overflow: hidden;
 }
-.tbody-thumb img{ border: 1px solid #ddd;}
+
+.tbody-thumb img {
+    border: 1px solid #ddd;
+}

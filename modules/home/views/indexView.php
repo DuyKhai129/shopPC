@@ -8,7 +8,7 @@
                     <?php if (!empty($data))
                         foreach ($data[4] as $value) { ?>
                     <div class="item">
-                        <img src="<?php echo $value['image']; ?>" alt="">
+                        <img src="admin/public/uploads/<?php echo $value['image']; ?>" alt="" style="height: 383px;">
                     </div>
                     <?php }
                     ; ?>

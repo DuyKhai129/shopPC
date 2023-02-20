@@ -70,7 +70,7 @@
                                 <img src="<?php echo $value['image'] ;?>">
                             </a>
                             <a href="?modules=products&controllers=index&action=detail&id=<?php echo $value['id']; ?>"
-                                title="" class="product-name"><?php echo $value['name']; ?></a>
+                                title="" class="product-name"><?php echo textShorten($value['name'],20); ?></a>
                             <div class="price">
                                 <span style="display: block;"
                                     class="new"><?php echo format_currency($value['promotional_price']).'.VNĐ'; ?></span>

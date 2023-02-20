@@ -58,7 +58,7 @@
                                     <td><span class="tbody-text"><?php echo $value['code']; ?></h3></span>
                                     <td>
                                         <div class="tbody-thumb">
-                                            <img src="<?php echo $value['image']; ?>" alt="">
+                                            <img src="public/uploads/<?php echo $value['image']; ?>" alt="">
                                         </div>
                                     </td>
                                     <td class="clearfix">
