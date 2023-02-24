@@ -13,7 +13,7 @@
             <div class="section" id="detail-page">
                 <div class="section-detail">
                     <?php if (!empty($data))
-                        foreach ($data as $value) { ?>
+                        foreach (($data[2]) as $value) { ?>
                     <form method="POST"
                         action="?modules=products&controllers=index&action=update&id=<?php echo $value['id']; ?>"
                         enctype="multipart/form-data">
@@ -79,13 +79,18 @@
                                 </select>
                                 <label for="category ">Danh mục sản phẩm</label>
                                 <select name="id_category" style="display: block;width: 300px;">
-                                    <option>---Select---</option>
-
+                                    <?php if(!empty($data)) foreach ($data[0] as  $value0) { ?>
+                                    <option <?php if($value["id_category"]==$value0["id"]) { echo 'selected';  }  ?>
+                                        value="<?php echo $value0['id']; ?>"><?php echo $value0['name']; ?></option>
+                                    <?php }; ?>
 
                                 </select>
                                 <label for="brand">Thương hiệu sản phẩm</label>
                                 <select name="id_brand" style="display: block;width: 300px;">
-                                    <option>---Select---</option>
+                                    <?php if(!empty($data)) foreach ($data[1] as  $value1) { ?>
+                                    <option <?php if($value["id_brand"]==$value1["id"]) { echo 'selected';  }  ?>
+                                        value="<?php echo $value1['id']; ?>"><?php echo $value1['name']; ?></option>
+                                    <?php }; ?>
                                 </select>
                                 <label>Hình ảnh</label>
                                 <div id="uploadFile">

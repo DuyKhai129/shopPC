@@ -46,4 +46,9 @@ function delete_product_by_id($id){
 }
 
 
+function update_product_by_id($id,$data){
+
+	return db_update("tbl_product", $data, "`id`='$id'");
+}
+
 ?>

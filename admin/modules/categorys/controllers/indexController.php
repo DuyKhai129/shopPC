@@ -148,7 +148,6 @@ function editAction()
 function updateAction()
 {
 	$id = $_GET['id'];
-	$image;
 	$data = get_category_by_id($id);
 	$data1 = array();
 	if (!empty($_POST['btn_submit'])) {

@@ -33,7 +33,6 @@ function addAction()
 	$front_camera;
 	$rear_camera;
 	$user;
-	$image;
 	$level;
 	$err = array();
 	if (!empty($_POST['btn_submit'])) {
@@ -128,17 +127,17 @@ function addAction()
 			$err['operating_system'] = "operating_system không được rỗng";
 		}
 
-		// if (!empty($_POST['front_camera'])) {
-		// 	$front_camera = $_POST['front_camera'];
-		// } else {
-		// 	$err['front_camera'] = "front_camera không được rỗng";
-		// }
+		if (!empty($_POST['front_camera'])) {
+			$front_camera = $_POST['front_camera'];
+		} else {
+			$err['front_camera'] = "front_camera không được rỗng";
+		}
 
-		// if (!empty($_POST['rear_camera'])) {
-		// 	$rear_camera = $_POST['rear_camera'];
-		// } else {
-		// 	$err['rear_camera'] = "rear_camera không được rỗng";
-		// }
+		if (!empty($_POST['rear_camera'])) {
+			$rear_camera = $_POST['rear_camera'];
+		} else {
+			$err['rear_camera'] = "rear_camera không được rỗng";
+		}
 
 		if (!empty($_POST['user'])) {
 			$user = $_POST['user'];
@@ -189,7 +188,7 @@ function addAction()
 						'front_camera' => $front_camera,
 						'rear_camera' => $rear_camera,
 						'user' => $user,
-						'image' => $image,
+						'image' => $unique_image,
 						'level' => $level
 		
 					];
@@ -258,15 +257,173 @@ function listAction()
 function editAction()
 {
 	$id = $_GET['id'];
-	$data = get_product_by_id($id);
+	$products = get_product_by_id($id);
+	$categories = getAllCategory();
+	$brands = getAllBrand();
+	$data = [$categories, $brands, $products];
 	load_view('show', $data);
+
 
 }
 
 function updateAction()
 {
+	$id = $_GET['id'];
+	$data = get_product_by_id($id);
+	$data1 = array();
+	if (!empty($_POST['btn_submit'])) {
 
+		if (empty($_POST['id_category'])) {
+			$data1['id_category'] = $data[0]['id_category'];
+		} else {
+			$data1['id_category'] = $_POST['id_category'];
+		}
 
+		if (empty($_POST['level'])) {
+			$data1['level'] = $data[0]['level'];
+		} else {
+			$data1['level'] = $_POST['level'];
+		}
+
+		if (empty($_POST['id_brand'])) {
+			$data1['id_brand'] = $data[0]['id_brand'];
+		} else {
+			$data1['id_brand'] = $_POST['id_brand'];
+		}
+
+		if (empty($_POST['name'])) {
+			$data1['name'] = $data[0]['name'];
+		} else {
+			$data1['name'] = $_POST['name'];
+		}
+
+		if (empty($_POST['code'])) {
+			$data1['code'] = $data[0]['code'];
+		} else {
+			$data1['code'] = $_POST['code'];
+		}
+
+		if (empty($_POST['price'])) {
+			$data1['price'] = $data[0]['price'];
+		} else {
+			$data1['price'] = $_POST['price'];
+		}
+
+		if (empty($_POST['promotional_price'])) {
+			$data1['promotional_price'] = $data[0]['promotional_price'];
+		} else {
+			$data1['promotional_price'] = $_POST['promotional_price'];
+		}
+
+		if (empty($_POST['quantity'])) {
+			$data1['quantity'] = $data[0]['quantity'];
+		} else {
+			$data1['quantity'] = $_POST['quantity'];
+		}
+
+		if (empty($_POST['status'])) {
+			$data1['status'] = $data[0]['status'];
+		} else {
+			$data1['status'] = $_POST['status'];
+		}
+
+		if (empty($_POST['description'])) {
+			$data1['description'] = $data[0]['description'];
+		} else {
+			$data1['description'] = $_POST['description'];
+		}
+
+		if (empty($_POST['screen'])) {
+			$data1['screen'] = $data[0]['screen'];
+		} else {
+			$data1['screen'] = $_POST['screen'];
+		}
+
+		if (empty($_POST['ram'])) {
+			$data1['ram'] = $data[0]['ram'];
+		} else {
+			$data1['ram'] = $_POST['ram'];
+		}
+
+		if (empty($_POST['cpu'])) {
+			$data1['cpu'] = $data[0]['cpu'];
+		} else {
+			$data1['cpu'] = $_POST['cpu'];
+		}
+
+		if (empty($_POST['memory'])) {
+			$data1['memory'] = $data[0]['memory'];
+		} else {
+			$data1['memory'] = $_POST['memory'];
+		}
+
+		if (empty($_POST['operating_system'])) {
+			$data1['operating_system'] = $data[0]['operating_system'];
+		} else {
+			$data1['operating_system'] = $_POST['operating_system'];
+		}
+
+		if (empty($_POST['front_camera'])) {
+			$data1['front_camera'] = $data[0]['front_camera'];
+		} else {
+			$data1['front_camera'] = $_POST['front_camera'];
+		}
+
+		if (empty($_POST['rear_camera'])) {
+			$data1['rear_camera'] = $data[0]['rear_camera'];
+		} else {
+			$data1['rear_camera'] = $_POST['rear_camera'];
+		}
+
+		if (empty($_POST['user'])) {
+			$data1['user'] = $data[0]['user'];
+		} else {
+			$data1['user'] = $_POST['user'];
+		}
+
+		// xử lý ảnh
+		$permitted  = array('jpg', 'jpeg', 'png', 'gif');
+		$file_name = $_FILES['image']['name'];
+		$file_size = $_FILES['image']['size'];
+		$file_temp = $_FILES['image']['tmp_name'];
+
+		$div = explode('.', $file_name);
+		$file_ext = strtolower(end($div));
+		$unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
+		$uploaded_image = "public/uploads/".$unique_image;
+
+		if (!empty($file_name)) {
+			//Nếu người dùng chọn ảnh
+			if ($file_size > 204800000) {
+
+				$alert = "<span class='success'>Kích thước hình ảnh phải nhỏ hơn 100MB!</span>";
+			   return $alert;
+			   } 
+			   elseif (in_array($file_ext, $permitted) === false) 
+			   {
+			   $alert = "<span class='success'>You can upload only:-".implode(', ', $permitted)."</span>";
+			   return $alert;
+			   }
+			move_uploaded_file($file_temp,$uploaded_image);
+			$data1['image'] = $unique_image;
+		} else {
+			$data1['image'] = $data[0]['image'];
+		}
+	}
+
+		///////////////////////////////////////
+		if (update_product_by_id($id, $data1)) {
+			// $res = get_product_by_id($id);
+			$products = get_product_by_id($id);
+			$categories = getAllCategory();
+			$brands = getAllBrand();
+			$data = [$categories, $brands, $products];
+			load_view('show', $data);
+			echo " <script type='text/javascript'> alert('Cập nhật sản phẩm thành công👌👌👌');</script>";
+		} else {
+			load_view('show', $data);
+			echo " <script type='text/javascript'> alert('Cập Nhật sản phẩm thất bại😭😭😭');</script>";
+		}
 }
 
 function deleteAction()
