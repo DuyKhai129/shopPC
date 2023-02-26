@@ -171,8 +171,8 @@ function addAction()
 				if (empty($err)) {
 					move_uploaded_file($file_temp,$uploaded_image);
 					$res = [
-						'id_category ' => $id_category,
-						'id_brand ' => $id_brand,
+						'id_category' => $id_category,
+						'id_brand' => $id_brand,
 						'name' => $name,
 						'code' => $code,
 						'price' => $price,

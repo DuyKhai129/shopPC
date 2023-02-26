@@ -29,24 +29,24 @@
 
                     <div class="form-row clearfix" style="margin-top: 15px;">
                         <div class="form-col">
-                            <!-- <label for="address">Mật khẩu cũ</label> -->
+                            <label for="old-pass">Mật khẩu cũ</label>
                             <input style="height: 38px;width: 400px;border: 1px solid #cccccc;padding: 6px 12px;"
-                                type="password" name="pass_old" id="pass_old" placeholder="Nhập mật khẩu cũ...">
+                                type="password" name="pass_old" id="pass-old" placeholder="Nhập mật khẩu cũ...">
                         </div>
                     </div>
 
                     <div class="form-row clearfix" style="margin-top: 15px;">
                         <div class="form-col ">
-                            <!-- <label for="address">Mật khẩu mới</label> -->
+                            <label for="new-pass">Mật khẩu mới</label>
                             <input style="height: 38px;width: 400px;border: 1px solid #cccccc;padding: 6px 12px;"
-                                type="password" name="pass_new" id="pass_new" placeholder="Nhập mật khẩu mới...">
+                                type="password" name="pass_new" id="pass-new" placeholder="Nhập mật khẩu mới...">
                         </div>
                     </div>
                     <div class="form-row clearfix" style="margin-top: 15px;">
                         <div class="form-col">
-                            <!-- <label for="address">Nhập lại mật khẩu</label> -->
+                            <label for="confirm-pass">Xác nhận mật khẩu</label>
                             <input style="height: 38px;width: 400px;border: 1px solid #cccccc;padding: 6px 12px;"
-                                type="password" name="confirm_pass" id="confirm_pass"
+                                type="password" name="confirm_pass" id="confirm-pass"
                                 placeholder="Nhập lại mật khẩu...">
                         </div>
                     </div>

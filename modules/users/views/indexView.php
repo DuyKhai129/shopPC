@@ -62,7 +62,7 @@
             </div>
             <div class="section-detail">
 
-                <form method="POST" action="?modules=users&controllers=index&action=crateAcount" name="form-checkout">
+                <form method="POST" action="?modules=users&controllers=index&action=crateAccount" name="form-checkout">
 
                     <div class="form-row clearfix">
                         <div class="form-col fl-left">

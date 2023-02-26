@@ -41,9 +41,9 @@ function checkUser($username, $mail, $phone){
 }
 
 // lấy thông tin tài khoản theo tên đăng nhập
-function getUserByUsername($username){
-
-	return db_fetch_array("SELECT * FROM `tbl_customer` WHERE `username` = '{$username}'");
+function getUserByUsername($username, $password){
+	
+	return db_fetch_array("SELECT * FROM `tbl_customer` WHERE `username` = '{$username}' AND `password` ='{$password}'");
 
 }
 

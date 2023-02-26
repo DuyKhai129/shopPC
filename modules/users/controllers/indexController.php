@@ -54,6 +54,7 @@ function loginAction(){
 				$dataUser = getUser($username, $password);
 				$_SESSION['id_customer'] = $dataUser['id'];
 				$_SESSION['username'] = $dataUser['username'];
+				$_SESSION['password'] = $dataUser['password'];
 				$_SESSION['fullname'] = $dataUser['fullname'];
 				header('location:?modules=home');
 			}else{
@@ -89,7 +90,7 @@ function format_currency($n=0){
 }
 
 
-function crateAcountAction(){
+function crateAccountAction(){
 
 	$username;
 	$password;
@@ -164,7 +165,7 @@ function crateAcountAction(){
 
 
 function informationAction(){
-	$data = getUserByUsername($_SESSION['username']);
+	$data = getUserByUsername($_SESSION['username'],$_SESSION['password']);
 	load_view('information',$data);
 }
 
@@ -202,8 +203,8 @@ function passAction(){
 
 function changePassAction(){
 
-      if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $oldPass =  $_POST['pass_old'];
+	if(!empty($_POST['btn_submit'])){
+		$oldPass =  $_POST['pass_old'];
         $newPass1 = $_POST['pass_new'];
         $newPass2 = $_POST['confirm_pass'];
         if(md5($oldPass) == $_SESSION['password']){
