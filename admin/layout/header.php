@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>MANAGER LOCALSTORE</title>
+    <title>MANAGER LAPTOP PRO</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -22,32 +22,27 @@
         <div id="container">
             <div id="header-wp">
                 <div class="wp-inner clearfix">
-                    <a href="?modules=home" title="" id="logo" class="fl-left">LOCAL STORE</a>
+                    <a href="?modules=home" title="" id="logo" class="fl-left">LAPTOP PRO</a>
                     <ul id="main-menu" class="fl-left">
                         <li>
                             <a href="?page=list_post" title="">Trang chủ</a>
                         </li>
                         <li>
-                            <a href="?page=list_post" title="">Bài viết</a>
+                            <a href="?page=list_post" title="">Tin tức</a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="?modules=blogs&controllers=index&action=add" title="">Thêm mới</a>
                                 </li>
                                 <li>
-                                    <a href="?modules=blogs&controllers=index&action=list" title="">Danh sách bài
-                                        viết</a>
-                                </li>
-                                <li>
-                                    <a href="?modules=home" title="">Danh mục bài viết</a>
+                                    <a href="?modules=blogs&controllers=index&action=list" title="">Danh sách</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="?modules=products&controllers=index&action=list" title="">Sản phẩm</a>
+                            <a href="?page=list_post" title="">Sản phẩm</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="?modules=products&controllers=index&action=list" title="">Danh sách sản
-                                        phẩm</a>
+                                    <a href="?modules=products&controllers=index&action=add" title="">Thêm mới</a>
                                 </li>
                                 <li>
                                     <a href="?modules=categorys&controllers=index&action=list" title="">Danh mục sản
@@ -56,7 +51,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="" title="">Bán hàng</a>
+                            <a href="?page=list_post" title="">Bán hàng</a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="?modules=orders&controllers=index&action=list" title="">Đơn hàng thành

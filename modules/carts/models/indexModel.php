@@ -95,7 +95,7 @@ function deleteItemByID($id){
 
 
 
-function deletecart(){
+function deleteCart(){
 
 	$id_customer = $_SESSION['id_customer'];
 	$data_cart = db_fetch_row("SELECT * FROM `tbl_cart`WHERE `id_customer` = $id_customer");
@@ -136,37 +136,37 @@ function checkCartByCustomer($id_customer){
 
 function getCartByCustomer($id_customer){
 
-	$datacart = checkCartByCustomer($id_customer);
+	$dataCart = checkCartByCustomer($id_customer);
 
-	if(!empty($datacart)){
+	if(!empty($dataCart)){
 
 		$_SESSION['cart']['info'] =[
 
-			'num_oder' =>$datacart['total_num'],
-			'total' =>$datacart['total_price'],
+			'num_oder' =>$dataCart['total_num'],
+			'total' =>$dataCart['total_price'],
 			'id_customer' => $id_customer
 
 			];
 
-		$id_cart = $datacart['id'];
-		$dataProductIncart = db_fetch_array("SELECT * FROM `tbl_detail_cart` WHERE `id_cart` = '$id_cart'");
+		$id_cart = $dataCart['id'];
+		$dataProductInCart = db_fetch_array("SELECT * FROM `tbl_detail_cart` WHERE `id_cart` = '$id_cart'");
 		
-		if(!empty($dataProductIncart)){
+		if(!empty($dataProductInCart)){
 
-			foreach ($dataProductIncart as $value) {
+			foreach ($dataProductInCart as $value) {
 
 				$id_product = $value['id_product'];
-				$productes = db_fetch_row("SELECT * FROM `tbl_product` WHERE `id` = $id_product");
+				$products = db_fetch_row("SELECT * FROM `tbl_product` WHERE `id` = $id_product");
 
 				$_SESSION['cart']['buy'][$id_product] = [
 
 					'id' => $value['id_product'],
 					'qty' => $value['num_total'],
 					'sub_total' => $value['sub_total_price'],
-					'code' => $productes['code'],
-					'name' => $productes['name'],
-					'price' => $productes['price'],
-					'image' => $productes['image']
+					'code' => $products['code'],
+					'name' => $products['name'],
+					'price' => $products['price'],
+					'image' => $products['image']
 					
 					];
 

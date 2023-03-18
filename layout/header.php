@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>LOCAL STORE</title>
+    <title>LAPTOP PRO</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
@@ -33,7 +33,7 @@
                             <ul id="main-menu" class="clearfix">
 
                                 <li>
-                                    <a href="?modules=blogs&action=list" title="">Blog</a>
+                                    <a href="?modules=blogs&action=list" title="">Tin tức</a>
                                 </li>
                                 <li>
                                     <a href="?modules=contacts&action=contact" title="">Liên hệ</a>
@@ -119,7 +119,7 @@
                                             </a>
                                             <div class="info fl-right">
                                                 <a href="" title="" class="product-name">
-                                                    <?php echo $value['name']; ?>
+                                                    <?php echo textShorten($value['name'],15); ?>
                                                 </a>
                                                 <p class="price">
                                                     <?php echo format_currency($value['price']). ' .VNĐ'; ?>

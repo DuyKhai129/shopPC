@@ -37,7 +37,12 @@ function changePass($password,$password1){
 	return db_update('tbl_admin', $data, "`password` = '{$password1}'");
 }
 
-
+function logout(){
+	unset($_SESSION['is_login']);
+    unset($_SESSION['username']);
+    unset($_SESSION['password']);
+    unset($_SESSION['fullname']);
+}
 
 
 ?>

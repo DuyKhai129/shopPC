@@ -32,7 +32,8 @@
                         <div class="form-col fl-left">
                             <label for="username">tên đăng nhập</label>
                             <input type="text" name="username" readonly="readonly" id="username"
-                                value="<?php echo $value['username']; ?>">
+                                value="<?php echo $value['username']; ?>"
+                                style="cursor: not-allowed;background: #f3f3f3;">
                         </div>
                         <div class="form-col fl-right">
                             <label for="email">Email</label>

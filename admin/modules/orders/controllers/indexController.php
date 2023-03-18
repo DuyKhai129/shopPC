@@ -85,6 +85,7 @@ function detailAction(){
 	$data = array();
 	$check = true;
 	$data_order = getAllDetailOrderNo($id_order);// lấy được id order
+
 	foreach ($data_order as $key => $value) {
 		
 		$id_product = (int)$value['id_product'];
@@ -108,6 +109,8 @@ function detailAction(){
 	$data[count($data)] = $id_order;
 	$data[count($data)] = $check;
 
+
+
 	load_view('detail',$data);
 }
 
@@ -128,7 +131,7 @@ function confirmAction(){
 
 	///////////////////////////////////////
 	header('location:?modules=orders&controller=index&action=listNo');
-	echo "xacs nhan";
+	echo "xac nhan";
 }
 
 

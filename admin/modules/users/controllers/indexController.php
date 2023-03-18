@@ -71,21 +71,18 @@ function updateAction(){
     $num = updateUser($fullname, $username,$email,$phone,$address);
     if($num ==1){
         load_view('info',$data);
-        echo " <script type='text/javascript'> alert('Cập Nhật Thành Công');</script>";
+        echo " <script type='text/javascript'> alert('Cập nhật thành công👌👌👌');</script>";
     }
     else {
         load_view('info',$data);
-        echo " <script type='text/javascript'> alert('Thông Tin Đã Tồn Tại');</script>";
+        echo " <script type='text/javascript'> alert('Thông tin đã tồn tại😔😔😔');</script>";
     }
 }
 
 // đăng xuất tải khoản
 function logoutAction() {
 
-    unset($_SESSION['is_login']);
-    unset($_SESSION['username']);
-    unset($_SESSION['password']);
-    unset($_SESSION['fullname']);
+    logout();
     header('location:?modules=users&controller=index&action=login');
 
 }
@@ -124,7 +121,7 @@ function loginAction() {
             header('location:?modules=home');
         }
         else {
-             echo " <script type='text/javascript'> alert('Đăng Nhập Thất Bại');</script>";
+             echo " <script type='text/javascript'> alert('Đăng nhập thất bại😫😫😫');</script>";
         }
     }
     load_view('login');

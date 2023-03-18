@@ -47,9 +47,14 @@
                                 </td>
                                 <td><?php echo format_currency($value['price'])." .VNĐ"; ?></td>
                                 <td>
-                                    <input min="1" style="width: 60px;" type="number"
-                                        name="qty[<?php echo $value['id']; ?>]" value="<?php echo  $value['qty']; ?>"
-                                        class="num-order">
+
+                                    <form action="" method="post">
+                                        <input min="1" style="width: 60px;" type="number"
+                                            name="qty[<?php echo $value['id']; ?>]"
+                                            value="<?php echo  $value['qty']; ?>" class="num-order">
+                                        <input type="submit" name="submit" value="Cập nhật"
+                                            style="background: #50e934;border: none;border-radius: 25px;margin-top: 5px;" />
+                                    </form>
                                 </td>
                                 <td><?php echo format_currency($value['sub_total'])." .VNĐ"; ?></td>
                                 <td>
@@ -91,7 +96,8 @@
         </div>
         <div class="section" id="action-cart-wp">
             <div class="section-detail">
-                <p class="title">Click vào <span style="color: green;">Cập nhật giỏ hàng</span> để cập nhật số lượng.
+                <p class="title">Click vào <span style="color: green;">Cập nhật ở cột số lượng</span> để cập nhật số
+                    lượng sản phẩm.
                     Nhấn vào <span style="color: green;">thanh toán</span> để hoàn tất mua hàng.</p>
                 <a href="?modules=home" title="" id="buy-more">Mua tiếp</a><br />
                 <a href="?modules=carts&controllers=index&action=deleteAll" title="" id="delete-cart">Xóa giỏ hàng</a>
@@ -99,5 +105,4 @@
         </div>
     </div>
 </div>
-
 <?php get_footer(); ?>

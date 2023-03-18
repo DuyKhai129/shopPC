@@ -11,6 +11,7 @@ function indexAction()
 
 }
 
+
 function addAction()
 {
 	$categories = getAllCategory();
