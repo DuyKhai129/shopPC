@@ -46,9 +46,11 @@
                                         title="" class="name-product"><?php echo $value['name']; ?></a>
                                 </td>
                                 <td><?php echo format_currency($value['price'])." .VNĐ"; ?></td>
-                                <td>
 
-                                    <form action="" method="post">
+                                <td>
+                                    <form
+                                        action="?modules=carts&controllers=index&action=update&qty=<?php echo $value['qty']; ?>"
+                                        method="post">
                                         <input min="1" style="width: 60px;" type="number"
                                             name="qty[<?php echo $value['id']; ?>]"
                                             value="<?php echo  $value['qty']; ?>" class="num-order">
@@ -57,6 +59,7 @@
                                     </form>
                                 </td>
                                 <td><?php echo format_currency($value['sub_total'])." .VNĐ"; ?></td>
+
                                 <td>
                                     <p><a href="?modules=carts&controllers=index&action=delete&id=<?php echo $value['id']; ?>"
                                             title="" class="del-product"><i class="fa fa-trash-o"></i></a></p>

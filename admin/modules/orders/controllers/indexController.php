@@ -1,5 +1,9 @@
 <?php
 
+require("../carbon/autoload.php");
+    use Carbon\Carbon;
+	use Carbon\CarbonInterval;
+
 function construct() {
 
     load_model('index');
@@ -11,7 +15,6 @@ function indexAction() {
 
 
 }
-
 
 
 function listAction() {
@@ -103,14 +106,11 @@ function detailAction(){
 			$data[$key]['mess'] = "Đủ hàng";
 		}
 
-		
-
 	};
 	$data[count($data)] = $id_order;
 	$data[count($data)] = $check;
 
-
-
+	
 	load_view('detail',$data);
 }
 
@@ -128,6 +128,44 @@ function confirmAction(){
 		$qty = $value['qty'];
 		updateQtyProduct($id,$qty);
 	}
+
+
+	$data_order = getAllDetailOrderNo($id_order);
+	$now = Carbon::now("Asia/Ho_Chi_Minh")->toDateString();
+	$con=mysqli_connect("localhost","root","","store");
+	$sql = "SELECT * FROM `tbl_statistical` WHERE `order_date`='$now'";
+	$query = mysqli_query($con,$sql);
+	$sub_total_price = 0;
+	$qty = 0;
+	$order_number = 1;
+	foreach ($data_order as $value) {
+			$sub_total_price += $value['sub_total_price'];
+			$qty += $value['qty'];
+	}
+	if(mysqli_num_rows($query) == 0){
+		$db_statistical = [
+			'order_date' => $now,
+			'order_number' => $order_number,
+			'revenue' => $sub_total_price,
+			 'quantity' => $qty,
+		];
+		insert_statistical($db_statistical);
+	} 
+	else if(mysqli_num_rows($query) != 0){
+		while($row = mysqli_fetch_array($query)){
+			$db_statistical = [
+				'order_number' => $row['order_number'] + 1,
+				'revenue' => $row['revenue'] + $sub_total_price,
+				'quantity' => $row['quantity'] + $qty,
+			];
+			update_statistical_by_day($now,$db_statistical);
+		}
+	}
+		
+		
+		
+		
+	
 
 	///////////////////////////////////////
 	header('location:?modules=orders&controller=index&action=listNo');

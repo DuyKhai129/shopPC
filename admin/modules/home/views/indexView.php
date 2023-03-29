@@ -6,7 +6,7 @@
         <div id="content" class="fl-right">
             <div class="section" id="title-page">
                 <div class="clearfix">
-                    <p>
+                    <!-- <p>
                         <select class="select-date"
                             style="padding: 5px 10px;border: 1px solid #ddd;border-radius: 5px;border-color: gray;">
                             <option value="">---Select---</option>
@@ -15,8 +15,9 @@
                             <option value="90day">90 ngày</option>
                             <option value="360day">360 ngày</option>
                         </select>
-                    </p>
-                    <h3 id="index" class="fl-left">Thống kê đơn hàng: <span id="text-date"></span></h3>
+                        <span id="text-date"></span>
+                    </p> -->
+                    <h3 id="index" class="fl-left">Thống kê đơn hàng</h3>
 
                     <?php
                         // require("../carbon/autoload.php");
@@ -26,7 +27,7 @@
                         // printf("1 day: %s", CarbonInterval::day()->forHumans());
                         $chart_data = "";
                         foreach ($data as $value)  {
-                                $chart_data .= "{ date:'".$value["order_date"]."', order:".$value["order_number"].", sales:".$value["statistical"].", quantity:".$value["quantity"]."}, ";
+                                $chart_data .= "{ date:'".$value["order_date"]."', order:".$value["order_number"].", sales:".$value["revenue"].", quantity:".$value["quantity"]."}, ";
                            }
                     
                            $chart_data = substr($chart_data, 0, -2);
@@ -48,7 +49,7 @@
 
             data: [<?php echo $chart_data; ?>],
 
-            ykeys: ['date', 'order', 'sales', 'quantity'],
+            ykeys: ['order', 'sales', 'quantity'],
 
             labels: ['Đơn hàng', 'Doanh thu', 'Số lượng bán ra']
         });

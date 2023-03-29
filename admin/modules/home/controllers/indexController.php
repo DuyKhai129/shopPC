@@ -29,7 +29,7 @@ function indexAction() {
 	// }else if($day == "365day"){
 	// 	$subDay = Carbon::now("Asia/Ho_Chi_Minh")->subdays(365)->toDateString();
 	// }
-	 $subDay = Carbon::now("Asia/Ho_Chi_Minh")->subdays(365)->toDateString();
+	$subDay = Carbon::now("Asia/Ho_Chi_Minh")->subdays(365)->toDateString();
 	$now = Carbon::now("Asia/Ho_Chi_Minh")->toDateString();
 
 	$data = getStatistical($subDay,$now);

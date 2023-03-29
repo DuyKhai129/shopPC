@@ -19,6 +19,8 @@ function getAllDetailOrderNo($id_order){
 }
 
 
+
+
 function getProductInOrder($id_product){
 
 	return db_fetch_row("SELECT * FROM `tbl_product` WHERE `id` ='$id_product'");
@@ -32,16 +34,20 @@ function updateConfirmOrder($id,$date){
 }
 
 
+function getStatisticalByDay($day){
+	return db_fetch_array("SELECT * FROM `tbl_statistical` WHERE `order_date` = '$day'");
+}
 
 
+function insert_statistical($data){
 
+	return db_insert("tbl_statistical", $data);
+}
 
+function update_statistical_by_day($day,$data){
 
-
-
-
-
-
+	return db_update("tbl_statistical", $data, "`order_date`='$day'");
+}
 
 
 function getQtyAndIDProductByIdOrder($id_order){

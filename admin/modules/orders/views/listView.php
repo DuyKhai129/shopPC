@@ -79,13 +79,15 @@
                 <div class="section-detail clearfix">
                     <p id="desc" class="fl-left">Chọn vào checkbox để lựa chọn tất cả</p>
                     <ul id="list-paging" class="fl-right">
-                        <?php for ($i=1; $i <= $data['1'] ; $i++) { ?>
+                        <?php for ($i = 1; $i <= $data['1']; $i++) { ?>
                         <li>
-                            <a <?php if($i == $data['2']) echo 'style="background-color: green;color:white; border-radius:300px;"';  ?>
-                                href="?modules=products&controllers=index&action=list&page=<?php echo $i; ?>"
+                            <a <?php if ($i == $data['2'])
+                                    echo 'style="background-color: green;color:white; border-radius:300px;"'; ?>
+                                href="?modules=orders&controllers=index&action=list&page=<?php echo $i; ?>"
                                 title=""><?php echo $i; ?></a>
                         </li>
-                        <?php }; ?>
+                        <?php }
+                        ; ?>
                     </ul>
                 </div>
             </div>

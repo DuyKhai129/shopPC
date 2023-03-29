@@ -7,10 +7,7 @@ function get_user_by_id($id) {
 
 }
 
-// function getStatistical()
-// {
-// 	return db_fetch_array("SELECT * FROM `tbl_statistical`");
-// }
+
 
 function getStatistical($subDay,$now)
 {
